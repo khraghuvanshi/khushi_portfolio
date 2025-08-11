@@ -98,3 +98,7 @@
   .interest-item { grid-template-columns: 90px 1fr; }
   .interest-thumb { width: 90px; height: 70px; }
 }
+
+/* Keep grid items from overflowing their column */
+.caro-track > * { min-width: 0; }
+.caro-card .card-body { overflow: hidden; }
