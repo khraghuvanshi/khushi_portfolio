@@ -53,15 +53,16 @@
 
   // ... keep the rest of your file as-is
 
-  const prev = document.querySelector('.caro-btn.prev');
+    const prev = document.querySelector('.caro-btn.prev');
   const next = document.querySelector('.caro-btn.next');
 
-  // Move by exactly one card width (card + gap)
+  // Move by exactly one card (its width + the flex gap)
   const oneStep = () => {
     const first = track.querySelector('.caro-card');
     if (!first) return viewport.clientWidth * 0.9;
     const rect = first.getBoundingClientRect();
-    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const styles = getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap || styles.gap) || 0;
     return rect.width + gap;
   };
 
@@ -72,6 +73,5 @@
     viewport.scrollBy({ left:  oneStep(), behavior: 'smooth' })
   );
 
-  // (keep your drag-to-scroll code if you like)
 
 })();
