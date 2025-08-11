@@ -51,28 +51,27 @@
     track.appendChild(art);
   });
 
+  // ... keep the rest of your file as-is
+
   const prev = document.querySelector('.caro-btn.prev');
   const next = document.querySelector('.caro-btn.next');
-  const scrollAmount = () => Math.min(viewport.clientWidth * 0.9, 900);
 
-  prev?.addEventListener('click', () => viewport.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
-  next?.addEventListener('click', () => viewport.scrollBy({ left:  scrollAmount(), behavior: 'smooth' }));
+  // Move by exactly one card width (card + gap)
+  const oneStep = () => {
+    const first = track.querySelector('.caro-card');
+    if (!first) return viewport.clientWidth * 0.9;
+    const rect = first.getBoundingClientRect();
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    return rect.width + gap;
+  };
 
-  // Drag to scroll
-  let isDown = false, startX = 0, startScroll = 0;
-  viewport.addEventListener('pointerdown', (e) => {
-    isDown = true;
-    startX = e.clientX;
-    startScroll = viewport.scrollLeft;
-    viewport.setPointerCapture(e.pointerId);
-    viewport.classList.add('dragging');
-  });
-  viewport.addEventListener('pointermove', (e) => {
-    if (!isDown) return;
-    const dx = e.clientX - startX;
-    viewport.scrollLeft = startScroll - dx;
-  });
-  const end = () => { isDown = false; viewport.classList.remove('dragging'); };
-  viewport.addEventListener('pointerup', end);
-  viewport.addEventListener('pointerleave', end);
+  prev?.addEventListener('click', () =>
+    viewport.scrollBy({ left: -oneStep(), behavior: 'smooth' })
+  );
+  next?.addEventListener('click', () =>
+    viewport.scrollBy({ left:  oneStep(), behavior: 'smooth' })
+  );
+
+  // (keep your drag-to-scroll code if you like)
+
 })();
