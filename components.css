@@ -2,6 +2,7 @@
 
 /* Projects carousel */
 .carousel { position: relative; margin-top: 1rem; }
+
 .caro-viewport {
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -10,47 +11,63 @@
   background: var(--panel);
   border-radius: 16px;
   box-shadow: var(--shadow);
+  padding: 0.5rem; /* keeps cards off the edge */
+  max-width: 100%;
 }
+
 .caro-track {
   display: grid;
   grid-auto-flow: column;
-  /* Show ~2 cards side by side on desktop, 1 on mobile */
-  grid-auto-columns: minmax(260px, 42%);
   gap: 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
+  /* Mobile: show 1 card at a time */
+  grid-auto-columns: 92%;
 }
-@media (max-width: 900px) {
-  .caro-track { grid-auto-columns: minmax(260px, 88%); }
+
+/* ≥700px: force 2-up */
+@media (min-width: 700px) {
+  .caro-track { grid-auto-columns: calc(50% - 0.75rem); }
 }
+
+/* Cards inherit your .card style; keep them compact */
+.caro-card.card {
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.caro-card .thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--stroke);
+}
+
+.caro-card .card-body { padding: 1rem; display: grid; gap: .5rem; }
+.caro-card .project-actions { margin-top: auto; }
+
+/* Arrows */
 .caro-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 40px; height: 40px;
   border-radius: 999px;
   border: 1px solid var(--stroke);
   background: rgba(255,255,255,0.06);
-  display: grid;
-  place-items: center;
+  display: grid; place-items: center;
   cursor: pointer;
   backdrop-filter: blur(6px);
+  z-index: 2;
 }
 .caro-btn:hover { background: rgba(255,255,255,0.12); }
 .caro-btn:active { transform: translateY(-50%) scale(0.98); }
 .caro-btn.prev { left: -12px; }
 .caro-btn.next { right: -12px; }
 
-/* Cards inside the carousel reuse existing .card styles */
-.caro-card.card {
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-.caro-card .thumb { width: 100%; height: 180px; object-fit: cover; display: block; }
-.caro-card .card-body { padding: 1rem; display: grid; gap: .5rem; }
-.caro-card .project-actions { margin-top: auto; }
 
 /* FAQ section */
 .section.faq {
@@ -81,3 +98,7 @@
   .interest-item { grid-template-columns: 90px 1fr; }
   .interest-thumb { width: 90px; height: 70px; }
 }
+
+/* Keep grid items from overflowing their column */
+.caro-track > * { min-width: 0; }
+.caro-card .card-body { overflow: hidden;}
