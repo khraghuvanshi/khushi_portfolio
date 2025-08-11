@@ -13,10 +13,8 @@
     projects = [];
   }
 
-  // Fallback: if no projects, do nothing
   if (!Array.isArray(projects) || projects.length === 0) return;
 
-  // Render compact cards (reuse existing card styles)
   projects.slice(0, 20).forEach((p) => {
     const art = document.createElement('article');
     art.className = 'card project-card caro-card';
@@ -39,9 +37,7 @@
 
   const prev = document.querySelector('.caro-btn.prev');
   const next = document.querySelector('.caro-btn.next');
-
   const scrollAmount = () => Math.min(viewport.clientWidth * 0.9, 900);
-
   prev?.addEventListener('click', () => viewport.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
   next?.addEventListener('click', () => viewport.scrollBy({ left:  scrollAmount(), behavior: 'smooth' }));
 
