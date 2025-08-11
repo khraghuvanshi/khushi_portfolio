@@ -101,4 +101,4 @@
 
 /* Keep grid items from overflowing their column */
 .caro-track > * { min-width: 0; }
-.caro-card .card-body { overflow: hidden; }
+.caro-card .card-body { overflow: hidden;}
