@@ -100,5 +100,50 @@
 }
 
 /* Keep grid items from overflowing their column */
-.caro-track > * { min-width: 0; }
-.caro-card .card-body { overflow: hidden;}
+/* --- Carousel hard overrides to stop overflow --- */
+.caro-track {
+  align-items: stretch;
+}
+
+/* Let items shrink to the column width */
+.caro-track > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Kill any grid layout the base .project-card might set */
+.caro-track .project-card {
+  display: flex !important;
+  flex-direction: column !important;
+  grid-template-columns: unset !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: hidden;
+}
+
+/* Keep text from forcing width */
+.caro-track .card-body { overflow: hidden; }
+.caro-track .project-meta,
+.caro-track .project-actions,
+.caro-track p { min-width: 0; }
+
+/* Image sizing (keeps the white block from growing huge) */
+.caro-track .thumb {
+  width: 100% !important;
+  height: 180px !important;     /* adjust if you want taller images */
+  object-fit: cover !important;
+  display: block;
+  border-bottom: 1px solid var(--stroke);
+}
+
+/* Tighten 2-up width a bit so it always fits */
+@media (min-width: 700px) {
+  .caro-track { grid-auto-columns: 46%; }  /* was calc(50% - 0.75rem) */
+}
+
+/* Optional: 3-up on big monitors
+@media (min-width: 1200px) {
+  .caro-track { grid-auto-columns: 30%; }
+} */
+
