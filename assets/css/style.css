@@ -1,0 +1,45 @@
+
+
+/* Bit-font headline */
+.mega{
+  font-family: "Press Start 2P", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial;
+  letter-spacing: .01em;
+}
+
+/* Carousel */
+.carousel{position:relative; display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:.5rem; margin-top:14px}
+.caro-viewport{overflow:hidden}
+.caro-track{display:grid; grid-auto-flow:column; grid-auto-columns: minmax(280px, 44%); gap:14px; scroll-snap-type:x mandatory; overflow-x:auto; padding-bottom:8px}
+.caro-track::-webkit-scrollbar{height:8px}
+.caro-track::-webkit-scrollbar-thumb{background:#2a2a33; border-radius:8px}
+.caro-slide{scroll-snap-align:start}
+.caro-btn{border:1px solid var(--stroke); background:#0e0e12; color:var(--text); border-radius:12px; padding:.55rem .7rem; cursor:pointer}
+.caro-btn:hover{background:rgba(255,255,255,.05)}
+@media (max-width: 900px){
+  .caro-track{grid-auto-columns: 86vw}
+}
+
+/* Interests */
+.interests-grid .interest{grid-column: span 3; padding:0 0 10px}
+.interests-grid .interest img{width:100%; height:180px; object-fit:cover; display:block; border-bottom:1px solid var(--stroke)}
+.interests-grid .interest h3{margin:.6rem .9rem 0}
+.interests-grid .interest p{margin:.25rem .9rem 0; color:var(--muted)}
+@media (max-width: 900px){ .interests-grid .interest{grid-column: span 6} }
+@media (max-width: 560px){ .interests-grid .interest{grid-column: span 12} }
+
+/* FAQ */
+.faq{display:grid; gap:8px}
+.faq-item{border:1px solid var(--stroke); border-radius:14px; overflow:hidden; background:linear-gradient(to bottom, #121217, #0e0e12)}
+.faq-q{all:unset; display:block; width:100%; padding:14px 16px; cursor:pointer; font-weight:600}
+.faq-a{display:none; padding:0 16px 14px; color:var(--muted)}
+.faq-item[open] .faq-a, .faq-item.expanded .faq-a{display:block}
+.faq-item .faq-q:focus{outline:2px solid var(--brand)}
+
+/* Certificates */
+.cert-grid .cert{grid-column: span 4}
+.cert-card{border:1px solid var(--stroke); border-radius:16px; overflow:hidden; background:linear-gradient(to bottom, #121217, #0e0e12); padding:16px}
+.cert-card h3{margin:0 0 6px}
+.cert-card p{margin:.25rem 0 0; color:var(--muted)}
+.cert-card a.btn{margin-top:.6rem}
+@media (max-width: 900px){ .cert-grid .cert{grid-column: span 6} }
+@media (max-width: 560px){ .cert-grid .cert{grid-column: span 12} }
