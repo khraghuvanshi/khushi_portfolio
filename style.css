@@ -3,7 +3,7 @@
   --panel: #111114;
   --text: #eaeaf0;
   --muted: #a1a1b3;
-  --brand: #8c7cf0;
+  --brand: #2481de; /*#8c7cf0 #6b59ec;*/
   --stroke: #23232a;
   --shadow: 0 10px 30px rgba(0, 0, 0, .3);
 }

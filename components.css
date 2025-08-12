@@ -34,7 +34,7 @@
 }
 
 /* 2-up on desktop (exactly two fit, gap included) */
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
   .caro-track > * {
     flex: 0 0 calc(50% - 0.5rem);
     max-width: calc(50% - 0.5rem);
