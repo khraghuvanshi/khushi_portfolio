@@ -13,7 +13,9 @@
   } catch (e) {
     console.warn('Could not load lib/projects.json', e);
   }
-  if (!Array.isArray(projects) || projects.length === 0) return;
+  // if (!Array.isArray(projects) || projects.length === 0) return;
+  if (!Array.isArray(projects)) projects = [];
+
 
   // ---- Render cards (uses your .card styles) --------------------------------
   track.innerHTML = '';

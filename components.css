@@ -283,7 +283,7 @@
 /* Controls row above the carousel */
 .caro-controls {
   display: flex;
-  justify-content: flex-end; /* change to center if you prefer */
+  justify-content: center; /* change to center if you prefer */
   gap: .5rem;
   margin-bottom: .5rem;
 }
