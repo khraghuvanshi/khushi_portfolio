@@ -123,3 +123,19 @@
   .interest-item { grid-template-columns: 90px 1fr; }
   .interest-thumb { width: 90px; height: 70px; }
 }
+
+/* --- Taller project cards (desktop only) --- */
+@media (min-width: 700px) {
+  .caro-card .thumb {            /* image area height */
+    height: 220px;               /* try 220–260px */
+  }
+  .caro-card.card {              /* overall card height floor */
+    min-height: 460px;           /* try 420–520px */
+  }
+  .caro-card p {                 /* let more description show */
+    -webkit-line-clamp: 5;       /* was 3 */
+  }
+}
+.caro-track { align-items: stretch; }
+.caro-card.card { height: 100%; }
+
