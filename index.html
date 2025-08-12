@@ -32,7 +32,7 @@
   </header>
 
   <main id="top">
-    <section class="hero" id="hero" tabindex="-1">
+    <section class="hero" id="hero" tabindex="-1" data-animate="fade-in" data-repeat="true">
       <div class="container hero-inner">
         <p class="eyebrow">DATA · ANALYSIS · STORYTELLING</p>
         <h1 class="mega">Khushi Raghuvanshi</h1>
@@ -46,16 +46,16 @@
     </section>
 
     
-    <section class="section projects" id="projects" aria-label="Selected projects">
+    <section class="section projects" id="projects" aria-label="Selected projects" data-animate="fade-up" data-repeat="true">
       <div class="container">
         <div class="section-head">
           <h2>Projects</h2>
           <p class="muted">A few projects spanning analytics, ML, and interactive visualization.</p>
         </div>
-      <div class="carousel" id="project-carousel" aria-label="Projects carousel">
+      <div class="carousel" id="project-carousel" aria-label="Projects carousel" data-animate="reveal-mask" data-repeat="true">
         <button class="caro-btn prev" aria-label="Previous"><span aria-hidden="true">‹</span></button>
         <div class="caro-viewport">
-          <div class="caro-track" id="caro-track"></div>
+          <div class="caro-track" id="caro-track"  data-stagger></div>
         </div>
         <button class="caro-btn next" aria-label="Next"><span aria-hidden="true">›</span></button>
       </div>
@@ -64,13 +64,13 @@
       </div>
     </section>
 
-    <section class="section services" id="services" aria-label="What I do">
+    <section class="section services" id="services" aria-label="What I do" data-animate="fade-up" data-repeat="true">
       <div class="container">
         <div class="section-head">
           <h2>What I Do</h2>
           <p class="muted">From quick analytics to end-to-end product insights.</p>
         </div>
-        <div class="grid services-grid">
+        <div class="grid services-grid" data-animate="fade-up" data-stagger data-repeat="true">
           <article class="card service"><h3>Dashboards & Data Stories</h3><p>Stakeholder-ready dashboards in Tableau or the browser, built on clean, tested data pipelines.</p></article>
           <article class="card service"><h3>Experiments & Causal</h3><p>Design and analysis of A/B tests; uplift modeling and counterfactual thinking baked into recommendations.</p></article>
           <article class="card service"><h3>RecSys & ML Prototypes</h3><p>From PCA & clustering to deep models — scoped prototypes that prove value and guide roadmaps.</p></article>
@@ -106,7 +106,7 @@
     </section> -->
 
 
-    <section class="section interests" id="interests" aria-label="My interests outside work">
+    <section class="section interests" id="interests" aria-label="My interests outside work" data-animate="fade-up" data-repeat="true">
       <div class="container">
         <div class="section-head">
           <h2>My interests outside work</h2>
@@ -137,14 +137,14 @@
       </div>
     </section>
 
-    <section class="section certs" id="certificates" aria-label="Certificates">
+    <section class="section certs" id="certificates" aria-label="Certificates" data-animate="fade-up" data-repeat="true">
       <div class="container">
         <div class="section-head">
           <h2>Certificates</h2>
           <p class="muted">Selected credentials & verifications.</p>
         </div>
 
-        <div id="cert-grid" class="cert-grid"></div>
+        <div id="cert-grid" class="cert-grid" data-stagger></div>
         <noscript>
           <p class="muted">Enable JavaScript to see certificates.</p>
         </noscript>
@@ -216,6 +216,7 @@
   <script src="carousel.js" type="module"></script>
   <script src="faq.js" defer></script>
   <script src="certificates.js" type="module"></script>
+  <script src="assets/js/scroll-anim.js" type="module"></script>
   <script src="main.js" type="module"></script>
 </body>
 </html>

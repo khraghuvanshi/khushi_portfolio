@@ -206,4 +206,58 @@
   overflow: hidden;
 }
 
+/* ===== Motion primitives (section + card reveal) ===== */
+
+:root{
+  --easing: cubic-bezier(.22,.61,.36,1);
+  --reveal-dur: 600ms;
+  --reveal-offset: 16px; /* how far things slide in */
+}
+
+/* base state */
+[data-animate]{
+  opacity:0;
+  transform: translateY(var(--reveal-offset));
+  transition: opacity var(--reveal-dur) var(--easing),
+              transform var(--reveal-dur) var(--easing),
+              clip-path var(--reveal-dur) var(--easing),
+              scale var(--reveal-dur) var(--easing);
+  will-change: transform, opacity;
+}
+
+/* when in view */
+[data-animate].in{
+  opacity:1;
+  transform:none;
+}
+
+/* variants */
+[data-animate="fade-in"]{ transform:none; }
+[data-animate="slide-left"]{ transform: translateX(var(--reveal-offset)); }
+[data-animate="slide-right"]{ transform: translateX(calc(-1 * var(--reveal-offset))); }
+[data-animate="scale-in"]{ transform: scale(.98); }
+
+/* allow a reveal mask option (optional) */
+[data-animate="reveal-mask"]{
+  opacity:1;
+  clip-path: inset(0 0 100% 0);
+}
+[data-animate="reveal-mask"].in{
+  clip-path: inset(0 0 0 0);
+}
+
+/* Staggered children */
+[data-stagger] > *{
+  transition-delay: 0ms; /* JS will increase this progressively */
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce){
+  [data-animate]{
+    opacity:1 !important;
+    transform:none !important;
+    clip-path:none !important;
+    transition:none !important;
+  }
+}
 
