@@ -177,4 +177,17 @@
 
 .cert-actions { margin-top: .75rem; }
 .cert-actions .btn { width: fit-content; }
+/* Equal-height cert cards helpers */
+.cert-grid { align-items: stretch; }
+.cert-card.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;          /* lets JS assign a uniform height */
+}
+.cert-card p {
+  display: -webkit-box;  /* keep descriptions from changing height wildly */
+  -webkit-line-clamp: 3; /* adjust if you want more/less text */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 

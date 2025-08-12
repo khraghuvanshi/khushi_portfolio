@@ -36,3 +36,21 @@
     console.warn('Could not load certificates.json', e);
   }
 })();
+// --- Make all certificate cards the same height ---
+function equalizeCertHeights() {
+  const cards = Array.from(document.querySelectorAll('.cert-card'));
+  if (!cards.length) return;
+  // reset to auto before measuring
+  cards.forEach(c => (c.style.height = 'auto'));
+  const max = Math.max(...cards.map(c => c.offsetHeight));
+  cards.forEach(c => (c.style.height = max + 'px'));
+}
+
+// run once after render + on resize (debounced)
+equalizeCertHeights();
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(equalizeCertHeights, 150);
+});
