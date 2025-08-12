@@ -280,6 +280,26 @@
 .caro-viewport { scrollbar-width: none; }
 .caro-viewport::-webkit-scrollbar { display: none; }
 
+/* Controls row above the carousel */
+.caro-controls {
+  display: flex;
+  justify-content: flex-end; /* change to center if you prefer */
+  gap: .5rem;
+  margin-bottom: .5rem;
+}
+
+/* When buttons are in the controls row, make them normal (not absolute) */
+.caro-controls .caro-btn {
+  position: static;
+  transform: none;
+  width: 40px;
+  height: 40px;
+}
+
+/* Remove the overlay positioning that was used before */
+.caro-btn.prev, .caro-btn.next { left: auto; right: auto; }
+
+
 /* Remove section-top dividers some components add */
 .section.faq,
 .section.interests,
