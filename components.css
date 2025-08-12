@@ -190,5 +190,20 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+/* Equal-height project cards */
+.caro-track { align-items: stretch; }         /* flex line uses tallest card */
+.caro-card.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;                                /* fill that height */
+}
+
+/* keep descriptions from changing height a lot */
+.caro-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;                       /* adjust to taste */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 
