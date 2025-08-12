@@ -280,4 +280,10 @@
 .caro-viewport { scrollbar-width: none; }
 .caro-viewport::-webkit-scrollbar { display: none; }
 
+/* Remove section-top dividers some components add */
+.section.faq,
+.section.interests,
+.certs {
+  border-top: 0 !important;
+}
 
