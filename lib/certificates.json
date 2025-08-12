@@ -1,8 +1,15 @@
 [
   {
-    "title": "Google Analytics Certification",
+    "title": "Google Analytics Individual Qualification",
     "issuer": "Google",
     "year": "2024",
-    "link": "https://skillshop.credential.net/9568e9a7-1b4a-4a8a-8bb9-439006ac359e"
+    "link": "https://skillshop.credential.net/xxxxx",
+    "description": "Core analytics concepts and platform proficiency."
+  },
+  {
+    "title": "dbt Fundamentals",
+    "issuer": "dbt Labs",
+    "year": "2025",
+    "link": "https://credentials.getdbt.com/xxxxx"
   }
 ]
