@@ -261,3 +261,21 @@
   }
 }
 
+/* --- Smooth, divider-less sections --- */
+.section + .section { border-top: 0 !important; }   /* override any theme divider */
+.section.faq,
+.section.interests,
+.section.certs { border-top: 0; }                    /* remove the ones we added */
+
+/* Optional: a very soft fade between sections instead of a line */
+.section.faq,
+.section.interests,
+.section.certs {
+  background-image: radial-gradient(800px 300px at 10% 0%,
+                     rgba(140,124,240,.06), transparent 60%);
+}
+
+/* --- Hide the thin horizontal scrollbar under the carousel --- */
+.caro-viewport { scrollbar-width: none; }
+.caro-viewport::-webkit-scrollbar { height: 0; background: transparent; }
+
