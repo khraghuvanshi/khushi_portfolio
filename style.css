@@ -378,3 +378,13 @@ kbd {
     grid-column: span 12;
   }
 } */
+
+/* Smooth page flow (no dividers between sections) */
+.section { border-bottom: 0 !important; }
+
+/* Optional: also remove the thin line under the sticky header */
+.site-header { border-bottom: 0 !important; }
+
+/* Smooth anchor scrolling & offset for sticky header */
+html { scroll-behavior: smooth; }
+.section { scroll-margin-top: 72px; }
